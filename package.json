@@ -5,7 +5,8 @@
   "description": "UI5: Walkthrough",
   "scripts": {
     "start": "fiori run --open index.html",
-    "build": "ui5 build -a --clean-dest --include-task=generateCachebusterInfo"
+    "build": "ui5 build -a --clean-dest --include-task=generateCachebusterInfo",
+    "proxy": "node proxy.js"
   },
   "dependencies": {
     "@openui5/sap.m": "^1.113.0",
@@ -16,6 +17,7 @@
     "@sap/ux-ui5-tooling": "1",
     "@types/openui5": "^1.113.0",
     "@ui5/cli": "^3.0.0",
+    "cors-anywhere": "^0.4.4",
     "rimraf": "3.0.2"
   },
   "private": true,
