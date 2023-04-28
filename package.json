@@ -5,6 +5,7 @@
   "description": "UI5: Walkthrough",
   "scripts": {
     "start": "fiori run --open index.html",
+    "mock": "fiori run --open test/mockServer.html",
     "build": "ui5 build -a --clean-dest --include-task=generateCachebusterInfo",
     "proxy": "node proxy.js"
   },
