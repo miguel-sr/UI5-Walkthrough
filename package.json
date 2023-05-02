@@ -22,6 +22,28 @@
     "cors-anywhere": "^0.4.4",
     "rimraf": "3.0.2"
   },
+  "ui5": {
+    "ui5parser": {
+      "ui5version": "1.84.30",
+      "dataSource": "https://sapui5.hana.ondemand.com/",
+      "rejectUnauthorized": true,
+      "libsToLoad": [
+        "sap.uxap",
+        "sap.viz"
+      ],
+      "additionalWorkspaces": [
+        "../MyLibrary"
+      ]
+    },
+    "ui5linter": {
+      "severity": {
+        "WrongFieldMethodLinter": "Warning"
+      },
+      "usage": {
+        "WrongOverrideLinter": true
+      }
+    }
+  },
   "private": true,
   "sapuxLayer": "CUSTOMER_BASE",
   "keywords": [
