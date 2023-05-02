@@ -39,7 +39,8 @@
     },
     "ui5linter": {
       "severity": {
-        "WrongFieldMethodLinter": "Warning"
+        "WrongFieldMethodLinter": "Warning",
+        "UnusedClassLinter": "Hint"
       },
       "usage": {
         "WrongOverrideLinter": true

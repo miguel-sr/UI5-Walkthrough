@@ -13,10 +13,12 @@
       />
     </landmarkInfo>
     <headerContent>
-      <!-- <Button 
-        icon="sap-icon://hello-world" 
-        press=".onOpenDialog"/> -->
-      <Button icon="sap-icon://hello-world" />
+      <!-- Botão que vai abrir menu pra toca de linguagem --> 
+      <Button
+        icon="sap-icon://hello-world"
+        press=".onLanguageSelectDialogPress"
+        ariaHasPopup="Dialog"
+      />
     </headerContent>
     <content>
       <mvc:XMLView viewName="sap.ui.demo.walkthrough.view.HelloPanel" />
