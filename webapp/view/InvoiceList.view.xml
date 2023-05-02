@@ -1,8 +1,9 @@
 <mvc:View
   controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
   xmlns="sap.m"
-  xmlns:mvc="sap.ui.core.mvc">
-  <List 
+  xmlns:mvc="sap.ui.core.mvc"
+>
+  <Table
     id="invoiceList"
     headerText="{i18n>invoiceListTitle}"
     class="sapUiResponsiveMargin"
@@ -13,36 +14,67 @@
         path: 'ShipperName',
         group: true
       }
-    }">
+    }"
+  >
     <headerToolbar>
       <Toolbar>
-        <Title text="{i18n>invoiceListTitle}"/>
-        <ToolbarSpacer/>
-        <SearchField width="50%" search=".onFilterInvoices"/>
+        <Title text="{i18n>invoiceListTitle}" />
+        <ToolbarSpacer />
+        <SearchField width="50%" search=".onFilterInvoices" />
       </Toolbar>
     </headerToolbar>
+    <columns>
+      <Column
+        hAlign="End"
+        minScreenWidth="Small"
+        demandPopin="true"
+        width="5em"
+      >
+        <Text text="{i18n>columnQuantity}" />
+      </Column>
+
+      <Column>
+        <Text text="{i18n>columnName}" />
+      </Column>
+
+      <Column minScreenWidth="Small" demandPopin="true">
+        <Text text="{i18n>columnStatus}" />
+      </Column>
+
+      <Column minScreenWidth="Tablet">
+        <Text text="{i18n>columnSupplier}" />
+      </Column>
+
+      <Column hAlign="End">
+        <Text text="{i18n>columnPrice}" />
+      </Column>
+    </columns>
     <items>
     <!-- showMeasure: oculta o texto vindo do view>/currency -->
-      <ObjectListItem 
-        title="{invoice>Quantity} x {invoice>ProductName}"
-        number="{
-          parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
-          type: 'sap.ui.model.type.Currency',
-          formatOptions: {
-            showMeasure: false
-          }
-        }"
-        numberUnit="{view>/currency}"
-        numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
-        type="Navigation"
-        press="onPress">
-        <firstStatus>
-            <ObjectStatus text="{
-              path: 'invoice>Status',
+      <ColumnListItem type="Navigation" press=".onPress">
+        <cells>
+          <ObjectNumber number="{invoice>Quantity}" emphasized="false" />
+          <ObjectIdentifier title="{invoice>ProductName}" />
+          <Text
+            text="{
+              path: 'invoice>Status', 
               formatter: '.formatter.statusText'
-            }"/>
-        </firstStatus>
-      </ObjectListItem>
+            }"
+          />
+          <Text text="{invoice>ShipperName}" />
+          <ObjectNumber
+            number="{
+              parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+              type: 'sap.ui.model.type.Currency',
+              formatOptions: {
+                showMeasure: false
+              }
+            }"
+            unit="{view>/currency}"
+            state="{= ${invoice>ExtendedPrice} ? 'Error' : 'Success'}"
+          />
+        </cells>
+      </ColumnListItem>
     </items>
-  </List>
+  </Table>
 </mvc:View>
