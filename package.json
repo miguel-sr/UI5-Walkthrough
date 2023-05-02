@@ -16,10 +16,12 @@
     "@openui5/themelib_sap_fiori_3": "^1"
   },
   "devDependencies": {
+    "@prettier/plugin-xml": "^2.2.0",
     "@sap/ux-ui5-tooling": "1",
     "@types/openui5": "^1.113.0",
     "@ui5/cli": "^3.0.0",
     "cors-anywhere": "^0.4.4",
+    "prettier": "^2.8.8",
     "rimraf": "3.0.2"
   },
   "ui5": {
