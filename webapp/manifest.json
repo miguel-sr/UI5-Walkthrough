@@ -40,6 +40,10 @@
         "sap.m": {}
       }
     },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
     "models": {
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
@@ -50,7 +54,8 @@
         }
       },
       "invoice": {
-        "dataSource": "invoiceRemote"
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "Invoices.json"
       }
     },
     "routing": {
